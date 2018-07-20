@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const request = require('request');
 
 const app = express();
 
@@ -10,6 +12,10 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+app.all(['/api/*'], (req, res) => {
+    req.pipe(request(process.env.API_HOST + req.url)).pipe(res);
 });
 
 const port = process.env.PORT || 5000;
