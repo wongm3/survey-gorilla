@@ -1,9 +1,9 @@
 import React from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
-import Home from '../components/Home';
-import Team from '../components/Team';
-import Survey from '../components/Survey';
+import Home from 'components/HomeContainer';
+import Team from 'components/Team';
+import Survey from 'components/Survey';
 
 const routes = ({history}) => (
     <ConnectedRouter history={history}>
