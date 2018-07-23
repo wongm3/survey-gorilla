@@ -1,5 +1,8 @@
+import { push } from 'connected-react-router';
+export const UPDATE_TEAM = 'UPDATE_TEAM';
+
 export const updateTeam = (team) => ({
-    type: 'UPDATE_TEAM',
+    type: UPDATE_TEAM,
     team
 });
 
@@ -22,5 +25,7 @@ export const registerTeam = (name) => (
         dispatch(updateTeam({
             id: content.teamId
         }));
+
+        dispatch(push(`/team/${content.teamId}`));
     }
 )
