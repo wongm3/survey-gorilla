@@ -11,24 +11,28 @@ class Survey extends React.Component {
     render() {
         return (
             <div className="Survey">
-                <h1>Survey Page</h1>
-                <label>
-                    Distribute Survey:
-                    <input type='text' />
-                </label>
-                <input type='button' value='Generate URL' />
-                <div>Survey Questions:
-                    <ol>
-                        {
-                            this.questions.map((question, index) => (
-                                <li>
-                                    <Question text={question.question_text} id={question.question_id} />
-                                </li>
-                            ))
-                        }
+                <div className="banner">
+                    <h1>Survey</h1>
+                    <label>
+                        Distribute Survey:
+                         {/* TODO Include Share Button */}
+                        <input type='text' />
+                    </label>
+                </div>
+                <div className="content">
+                    <div>
+                        <ol>
+                            {
+                                this.questions.map((question, index) => (
+                                    <li>
+                                        <Question text={question.question_text} id={question.question_id} />
+                                    </li>
+                                ))
+                            }
 
-                    </ol>
-                    <input type='button' value='Submit Survey' />
+                        </ol>
+                        <input type='button' value='Submit Survey' />
+                    </div>
                 </div>
             </div>
         )
