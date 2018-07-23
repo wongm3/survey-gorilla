@@ -10,9 +10,11 @@ class Results extends React.Component {
     render() {
         return (
             <div className="Results">
-                <h1>Results Page</h1>
-            
-                    <div>Results:
+                            <div className="banner">
+
+                <h1>Results</h1>
+            </div>
+                    <div className="content">
                     <ol>
                         {
                             this.questions.map((question, index) => (

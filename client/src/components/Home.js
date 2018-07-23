@@ -2,15 +2,19 @@ import React from 'react';
 
 class Home extends React.Component {
 
-    render () {
+    render() {
         return (
             <div className="Home">
-                <h1>Create Team</h1>
-                <label>
-                    Team Name: 
-                    <input type='text'/>
-                </label>
-                <input type='button' value='Create'/>
+                <div className="banner">
+                    <h1>Create Team</h1>
+                </div>
+                <div className="content">
+                    <label>
+                        Team Name:
+                    <input type='text' />
+                    </label>
+                    <input type='button' value='Create' />
+                </div>
             </div>
         )
     }

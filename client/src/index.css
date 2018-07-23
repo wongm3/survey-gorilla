@@ -72,3 +72,8 @@ h1 {
     position: relative;
     top: -50px;
 }
+
+.centered {
+    text-align: center;
+    
+}
