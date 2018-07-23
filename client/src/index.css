@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700|Source+Sans+Pro');
+
+:root {
+    --ghost-white: #FBFBFC;
+    --bay-of-many: #363B5B;
+    --zircon: #E0E2E2;
+    --chetwode-blue: #606CC0;
+    --ship-cove: #76799E;
+    --link-water: #D5D6D7;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    background: var(--zircon);
+    padding: 0;
+}
+
+h1 {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.answer {
+    position: relative;
+}
+
+.answer span{
+    width: 100px;
+    text-align:  center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    display: inline-block;
+    border: 1px solid var(--bay-of-many);
+}
+
+.answer input {
+    visibility: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+}
+
+.answer input:checked + span {
+    background: var(--bay-of-many);
+    color: var(--ghost-white);
+}
+
+.banner {
+    min-height: 150px;
+    padding: 20px;
+    background: var(--bay-of-many);
+    color: var(--ghost-white);
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0px auto;
+    background: var(--ghost-white);
+    padding: 40px;
+    border-radius: 5px;
+    position: relative;
+    top: -50px;
+}
