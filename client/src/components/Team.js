@@ -5,7 +5,7 @@ class Team extends React.Component {
     render () {
         return (
             <div className="Team">
-                <h1>Team Page</h1>
+                <h1>{this.props.name}</h1>
                 <label>
                     Create New Survey: 
                     <input type='text'/>
