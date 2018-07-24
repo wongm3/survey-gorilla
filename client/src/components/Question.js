@@ -1,6 +1,10 @@
 import React from 'react';
 
-class Home extends React.Component {
+class Question extends React.Component {
+
+    answerQuestion = (event) => {
+        this.props.answerQuestion(this.props.id, event.target.value);
+    }
 
     render() {
         return (
@@ -17,6 +21,7 @@ class Home extends React.Component {
                                         type="radio"
                                         name={`question-${this.props.id}`}
                                         value={value}
+                                        onClick={this.answerQuestion}
                                     />
                                     <span>{value}</span>
                                 </label>
@@ -29,4 +34,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Question;

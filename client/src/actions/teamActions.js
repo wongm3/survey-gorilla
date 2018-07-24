@@ -1,6 +1,9 @@
 import { push } from 'connected-react-router';
 export const UPDATE_TEAM = 'UPDATE_TEAM';
 export const SET_SURVEYS = 'SET_SURVEYS';
+export const SET_CURRENT_SURVEY = 'SET_CURRENT_SURVEY';
+export const SET_QUESTIONS = 'SET_QUESTIONS';
+export const ANSWER_QUESTION = 'ANSWER_QUESTION';
 
 export const updateTeam = (team) => ({
     type: UPDATE_TEAM,
@@ -10,6 +13,22 @@ export const updateTeam = (team) => ({
 export const setSurveys = (surveys) => ({
     type: SET_SURVEYS,
     surveys
+});
+
+export const setCurrentSurvey = (survey) => ({
+    type: SET_CURRENT_SURVEY,
+    survey
+})
+
+export const setQuestions = (questions) => ({
+    type: SET_QUESTIONS,
+    questions
+});
+
+export const answerQuestion = (questionId, answer) => ({
+   type: ANSWER_QUESTION,
+   questionId,
+   answer 
 });
 
 export const registerTeam = (name) => (
@@ -89,4 +108,59 @@ export const getTeamAndSurveys = teamId => (
         dispatch(getTeam(teamId));
         dispatch(getTeamSurveys(teamId));
     }
-)
+);
+
+export const getSurvey = surveyId => (
+    async dispatch => {
+        const response = await fetch(`/api/survey/${surveyId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const content = await response.json();
+
+        dispatch(setCurrentSurvey(content));
+    }
+);
+
+export const getQuestions = () => (
+    async dispatch => {
+        const response = await fetch('/api/questions', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const content = await response.json();
+
+        dispatch(setQuestions(content));
+    }
+);
+
+export const getSurveyAndQuestions = surveyId => (
+    async dispatch => {
+        dispatch(getSurvey(surveyId));
+        dispatch(getQuestions());
+    }
+);
+
+export const submitSurvey = (surveyId, answers) => (
+    async dispatch => {
+        const body = {
+            answers
+        };
+
+        const response = await fetch(`/api/survey/${surveyId}/submit`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+
+        console.log('Survey Submitted');
+    }
+);
