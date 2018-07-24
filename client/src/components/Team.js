@@ -17,7 +17,7 @@ class Team extends React.Component {
                         </label>
                         <input type='button' value='Generate' />
                     </div>
-                    <table style={{ width: "100%" }}>
+                    <table>
                         <thead>
                             <tr>
                                 <th>Survey</th>

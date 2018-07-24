@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700|Source+Sans+Pro:400,700');
 
 :root {
     --ghost-white: #FBFBFC;
@@ -27,6 +27,10 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
+button:hover {
+    background: var(--ship-cove);
+}
+
 input[type="text"] {
     padding: 10px;
     margin: 5px;
@@ -37,7 +41,8 @@ input[type="text"] {
     font-family: inherit;
 }
 
-input[type="button"] {
+input[type="button"],
+button {
     border: 0;
     padding: 10px;
     font-size: inherit;
@@ -57,8 +62,30 @@ input[type="button"]:hover {
     margin-bottom: 20px;
 }
 
-.Question p {
+p {
     margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--zircon);
+}
+
+th {
+    font-weight: bold;
+    /* border-bottom: 1px solid; */
+}
+
+th span {
+    white-space: nowrap;
+}
+
+td, th {
+    padding: 5px;
 }
 
 .Home {
@@ -141,4 +168,10 @@ input[type="button"]:hover {
 .centered {
     text-align: center;
     
+}
+
+@media (max-width: 468px) {
+    .desktop {
+        display: none;
+    }
 }

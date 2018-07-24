@@ -1,5 +1,6 @@
 import React from 'react';
 import Question from './Question';
+import Clipboard from 'react-clipboard.js';
 
 class Survey extends React.Component {
 
@@ -14,9 +15,9 @@ class Survey extends React.Component {
                 <div className="banner">
                     <h1>Survey</h1>
                     <label>
-                        Distribute Survey:
-                         {/* TODO Include Share Button */}
-                        <input type='text' />
+                        <Clipboard data-clipboard-text={window.location}>
+                            Copy <span className="desktop">Survey</span> Link
+                        </Clipboard>
                     </label>
                 </div>
                 <div className="content">
@@ -31,7 +32,9 @@ class Survey extends React.Component {
                             }
 
                         </ol>
-                        <input type='button' value='Submit Survey' />
+                        <div className="centered">
+                            <input type='button' value='Submit Survey' />
+                        </div>
                     </div>
                 </div>
             </div>
