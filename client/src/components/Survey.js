@@ -15,7 +15,7 @@ class Survey extends React.Component {
                     <h1>{this.props.name} <span className="desktop">Survey</span></h1>
                     <label>
                         <Clipboard data-clipboard-text={`${window.location.origin}/survey/${this.props.id}`}>
-                            Copy <span className="desktop">Survey</span> Link
+                            <span>Copy <span className="desktop">Survey</span> Link</span>
                         </Clipboard>
                     </label>
                 </div>
