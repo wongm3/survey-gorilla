@@ -4,6 +4,7 @@ export const SET_SURVEYS = 'SET_SURVEYS';
 export const SET_CURRENT_SURVEY = 'SET_CURRENT_SURVEY';
 export const SET_QUESTIONS = 'SET_QUESTIONS';
 export const ANSWER_QUESTION = 'ANSWER_QUESTION';
+export const SET_RESULTS = 'SET_RESULTS';
 
 export const updateTeam = (team) => ({
     type: UPDATE_TEAM,
@@ -29,6 +30,11 @@ export const answerQuestion = (questionId, answer) => ({
    type: ANSWER_QUESTION,
    questionId,
    answer 
+});
+
+export const setResults = results => ({
+    type: SET_RESULTS,
+    results
 });
 
 export const registerTeam = (name) => (
@@ -162,5 +168,27 @@ export const submitSurvey = (surveyId, answers) => (
         });
 
         console.log('Survey Submitted');
+    }
+);
+
+export const getResults = (teamId, surveyId) => (
+    async dispatch => {
+        const response = await fetch(`/api/survey/${teamId}/${surveyId}/result`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const content = await response.json();
+
+        dispatch(setResults(content));
+    }
+)
+
+export const getQuestionsAndResults = (teamId, surveyId) => (
+    async dispatch => {
+        await dispatch(getQuestions());
+        dispatch(getResults(teamId, surveyId));
     }
 );
