@@ -1,21 +1,20 @@
 import React from 'react';
 import Question from './Question';
 import Clipboard from 'react-clipboard.js';
+import { answerQuestion } from '../actions/teamActions';
 
 class Survey extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.questions = [{ "question_id": 1, "question_text": "We know exactly why we are here, and we are really excited about it." }, { "question_id": 2, "question_text": "We deliver great stuff! We’re proud of it and our stakeholders are really happy." }, { "question_id": 3, "question_text": "We love going to work, and have great fun working together." }, { "question_id": 4, "question_text": "We’re learning lots of interesting stuff all the time!" }, { "question_id": 5, "question_text": "Releasing is simple, safe, painless & mostly automated." }, { "question_id": 6, "question_text": "Our way of working fits us perfectly." }, { "question_id": 7, "question_text": "We’re proud of the quality of our code! It is clean, easy to read, and has great test coverage." }, { "question_id": 8, "question_text": "We get stuff done really quickly.No waiting, no delays." }, { "question_id": 9, "question_text": "We always get great support & help when we ask for it!" }, { "question_id": 10, "question_text": "We are in control of our destiny! We decide what to build and how to build it." }]
-
+    submitSurvey = () => {
+        console.log(this.props.id, this.props.questions);
+        this.props.submitSurvey(this.props.id, this.props.questions);
     }
     render() {
         return (
             <div className="Survey">
                 <div className="banner">
-                    <h1>Survey</h1>
+                    <h1>{this.props.name} Survey</h1>
                     <label>
-                        <Clipboard data-clipboard-text={window.location}>
+                        <Clipboard data-clipboard-text={`${window.location.origin}/survey/${this.props.id}`}>
                             Copy <span className="desktop">Survey</span> Link
                         </Clipboard>
                     </label>
@@ -24,16 +23,16 @@ class Survey extends React.Component {
                     <div>
                         <ol>
                             {
-                                this.questions.map((question, index) => (
-                                    <li key={index}>
-                                        <Question text={question.question_text} id={question.question_id} />
+                                this.props.questions.map((question) => (
+                                    <li key={question.questionId}>
+                                        <Question text={question.text} id={question.questionId} answerQuestion={this.props.answerQuestion} />
                                     </li>
                                 ))
                             }
 
                         </ol>
                         <div className="centered">
-                            <input type='button' value='Submit Survey' />
+                            <input type='button' value='Submit Survey' onClick={this.submitSurvey}/>
                         </div>
                     </div>
                 </div>
