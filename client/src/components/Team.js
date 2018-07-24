@@ -1,21 +1,39 @@
 import React from 'react';
+import { Field } from 'redux-form';
+import Link from 'connected-react-router';
 
 class Team extends React.Component {
+
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter' && event.shiftKey === false) {
+            event.preventDefault();
+            this.startSurvey();
+        }
+    }
+
+    startSurvey = () => {
+        this.props.startSurvey(this.props.id, this.props.surveyName);
+    }
 
     render() {
         return (
             <div className="Team">
                 <div className="banner">
 
-                    <h1>Team Page</h1>
+                    <h1>{this.props.name}</h1>
                 </div>
                 <div className="content">
                     <div className="centered">
                         <label>
                             Create New Survey:
-                    <input type='text' />
+                            <Field
+                                name="surveyName"
+                                component="input"
+                                type="text"
+                                onKeyDown={this.handleKeyDown}
+                            />
                         </label>
-                        <input type='button' value='Generate' />
+                        <input type='button' value='Generate' onClick={this.startSurvey} />
                     </div>
                     <table>
                         <thead>
@@ -26,21 +44,15 @@ class Team extends React.Component {
                             </tr>
                         </thead>
                         <tbody className="centered">
-                            <tr>
-                                <td>Sprint 1</td>
-                                <td>6</td>
-                                <td>3.4</td>
-                            </tr>
-                            <tr>
-                                <td>Sprint 2</td>
-                                <td>5</td>
-                                <td>2.9</td>
-                            </tr>
-                            <tr>
-                                <td>Sprint 3</td>
-                                <td>4</td>
-                                <td>3.9</td>
-                            </tr>
+                            {
+                                this.props.surveys.map(survey => <tr key={survey.id}>
+                                    <td>
+                                        <Link to={`/survey/${survey.id}`}> {survey.name}</Link>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>)
+                            }
                         </tbody>
                     </table>
                 </div>
