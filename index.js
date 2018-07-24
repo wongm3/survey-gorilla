@@ -9,14 +9,12 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.all(['/api/*'], (req, res) => {
-    console.log(process.env.API_HOST + req.url);
     req.pipe(request(process.env.API_HOST + req.url)).pipe(res);
 });
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-    console.log('test');
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
