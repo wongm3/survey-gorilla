@@ -22,8 +22,9 @@ class Team extends React.Component {
                 <input type='button' value='Generate' onClick={this.startSurvey} />
                 <div>View Previous Surveys:</div>
                     <ul>
-                        <li>Sprint 1</li>
-                        <li>Sprint 2</li>
+                        {
+                            this.props.surveys.map(survey => <li key={survey.id}>{survey.name}</li>)
+                        }
                     </ul>
                 <div>Metrics</div>
             </div>
