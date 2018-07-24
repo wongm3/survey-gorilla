@@ -1,4 +1,4 @@
-import { SET_QUESTIONS, ANSWER_QUESTION, SET_RESULTS } from '../actions/teamActions';
+import { SET_QUESTIONS, ANSWER_QUESTION, SET_RESULTS } from 'actions/teamActions';
 
 const setResults = (state, results) => {
     const newState = [];
