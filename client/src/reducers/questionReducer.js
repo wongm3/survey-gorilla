@@ -1,5 +1,4 @@
 import { SET_QUESTIONS, ANSWER_QUESTION } from '../actions/teamActions';
-import { routerActions } from 'connected-react-router';
 
 const surveyReducer = (state = [], action) => {
     switch (action.type) {

@@ -153,7 +153,7 @@ export const submitSurvey = (surveyId, answers) => (
             answers
         };
 
-        const response = await fetch(`/api/survey/${surveyId}/submit`, {
+        await fetch(`/api/survey/${surveyId}/submit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
