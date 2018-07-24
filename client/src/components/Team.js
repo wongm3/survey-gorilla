@@ -1,6 +1,11 @@
 import React from 'react';
+import { Field } from 'redux-form';
 
 class Team extends React.Component {
+
+    startSurvey = () => {
+        this.props.startSurvey(this.props.id, this.props.surveyName);
+    }
 
     render () {
         return (
@@ -8,9 +13,13 @@ class Team extends React.Component {
                 <h1>{this.props.name}</h1>
                 <label>
                     Create New Survey: 
-                    <input type='text'/>
+                    <Field
+                        name="surveyName"
+                        component="input"
+                        type="text"
+                    />
                 </label>
-                <input type='button' value='Generate'/>
+                <input type='button' value='Generate' onClick={this.startSurvey} />
                 <div>View Previous Surveys:</div>
                     <ul>
                         <li>Sprint 1</li>

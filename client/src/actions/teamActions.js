@@ -29,3 +29,19 @@ export const registerTeam = (name) => (
         dispatch(push(`/team/${content.teamId}`));
     }
 )
+
+export const startSurvey = (teamId, name) => (
+    async dispatch => {
+        const body = {
+            name
+        };
+
+        const response = await fetch(`/api/team/${teamId}/start-survey`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+    }
+)
