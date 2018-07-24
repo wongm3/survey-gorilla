@@ -1,11 +1,9 @@
 import React from 'react';
 import Question from './Question';
 import Clipboard from 'react-clipboard.js';
-import { answerQuestion } from '../actions/teamActions';
 
 class Survey extends React.Component {
     submitSurvey = () => {
-        console.log(this.props.id, this.props.questions);
         this.props.submitSurvey(this.props.id, this.props.questions);
     }
     render() {

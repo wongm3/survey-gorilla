@@ -48,7 +48,7 @@ class Team extends React.Component {
                                 this.props.surveys.map(survey => (
                                     <tr key={survey.id}>
                                         <td>
-                                            <Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${survey.id}`}>Results</Link>
+                                            <Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${this.props.id}/${survey.id}`}>Results</Link>
                                         </td>
                                         <td></td>
                                         <td></td>

@@ -1,4 +1,4 @@
-import { UPDATE_TEAM } from '../actions/teamActions';
+import { UPDATE_TEAM } from 'actions/teamActions';
 
 const teamReducer = (state = {}, action) => {
     switch (action.type) {

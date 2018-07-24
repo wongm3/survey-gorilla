@@ -1,4 +1,4 @@
-import { SET_SURVEYS, SET_CURRENT_SURVEY } from '../actions/teamActions';
+import { SET_SURVEYS, SET_CURRENT_SURVEY } from 'actions/teamActions';
 
 const initialState = {
     surveys: [],
