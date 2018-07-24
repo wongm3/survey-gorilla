@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,700|Source+Sans+Pro:400,700');
 
 :root {
     --ghost-white: #FBFBFC;
@@ -18,7 +18,7 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    background: var(--zircon);
+    background: var(--bay-of-many);
     padding: 0;
 }
 
@@ -27,15 +27,97 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
+button:hover {
+    background: var(--ship-cove);
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--chetwode-blue);
+    vertical-align: middle;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+input[type="button"],
+button {
+    border: 0;
+    padding: 10px;
+    font-size: inherit;
+    font-family: inherit;
+    background: var(--chetwode-blue);
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+input[type="button"]:hover {
+    background: var(--bay-of-many);
+}
+
+.Question {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+table {
+    width: calc(100% + 80px);
+    border-collapse: collapse;
+    margin: 25px -40px;
+}
+
+table.full-height {
+    margin: -40px;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--zircon);
+}
+
+th {
+    font-weight: bold;
+}
+
+th span {
+    white-space: nowrap;
+}
+
+td, th {
+    padding: 15px;
+}
+
+.Home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: var(--bay-of-many);
+    padding-bottom: 300px;
+}
+
+.answer-list {
+    display: flex;
+    justify-content: stretch;
+}
+
 .answer {
     position: relative;
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .answer span{
-    width: 100px;
+    width: 100%;
     text-align:  center;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 10px;
     display: inline-block;
     border: 1px solid var(--bay-of-many);
 }
@@ -54,21 +136,47 @@ h1 {
     color: var(--ghost-white);
 }
 
+.answer:not(:last-child) span {
+    border-right: 0;
+}
+
+.answer:first-child span {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.answer:last-child span {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .banner {
-    min-height: 150px;
-    padding: 20px;
-    background: var(--bay-of-many);
+    margin: 40px auto 20px;
     color: var(--ghost-white);
     display: flex;
     justify-content: space-between;
+    width: 90%;
 }
 
 .content {
-    max-width: 800px;
     margin: 0px auto;
     background: var(--ghost-white);
     padding: 40px;
     border-radius: 5px;
-    position: relative;
-    top: -50px;
+    width: 90%;
 }
+
+.centered {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+@media (max-width: 468px) {
+    .desktop {
+        display: none;
+    }
+}
+

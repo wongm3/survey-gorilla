@@ -10,21 +10,29 @@ class Results extends React.Component {
     render() {
         return (
             <div className="Results">
-                <h1>Results Page</h1>
-            
-                    <div>Results:
-                    <ol>
-                        {
-                            this.questions.map((question, index) => (
-                                <li>
-                                    {question.question_text} 
-                                    <br/>
-                                    {question.response_average % 5}
-                                </li>
-                            ))
-                        }
+                <div className="banner">
 
-                    </ol>
+                    <h1>Results</h1>
+                </div>
+                <div className="content">
+                    <table className="full-height">
+                        <thead>
+                            <tr>
+                                <th className="text-align-left">Question</th>
+                                <th><span><span className="desktop">Average </span>Score</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.questions.map((question, index) => (
+                                    <tr>
+                                        <td>{question.question_text}</td>
+                                        <td className="centered">{question.response_average % 5}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         )

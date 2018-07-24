@@ -13,12 +13,16 @@ class Home extends React.Component {
     render () {
         return (
             <div className="Home">
-                <h1>Create Team</h1>
-                <label>
-                    Team Name: 
-                    <input type='text' onChange={this.handleNameChange} />
-                </label>
-                <input type='button' value='Create' onClick={this.createTeam} />
+                <div className="banner">
+                    <h1>Create Team</h1>
+                </div>
+                <div className="content centered">
+                    <label>
+                        Team Name: 
+                        <input type='text' onChange={this.handleNameChange} />
+                    </label>
+                    <input type='button' value='Create' onClick={this.createTeam} />
+                </div>
             </div>
         )
     }

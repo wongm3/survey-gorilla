@@ -15,29 +15,49 @@ class Team extends React.Component {
         this.props.startSurvey(this.props.id, this.props.surveyName);
     }
 
-    render () {
+    render() {
         return (
             <div className="Team">
-                <h1>{this.props.name}</h1>
-                <label>
-                    Create New Survey: 
-                    <Field
-                        name="surveyName"
-                        component="input"
-                        type="text"
-                        onKeyDown={this.handleKeyDown}
-                    />
-                </label>
-                <input type='button' value='Generate' onClick={this.startSurvey} />
-                <div>View Previous Surveys:</div>
-                    <ul>
-                        {
-                            this.props.surveys.map(survey => (
-                                <li key={survey.id}><Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${survey.id}`}>Results</Link></li>
-                            ))
-                        }
-                    </ul>
-                <div>Metrics</div>
+                <div className="banner">
+
+                    <h1>{this.props.name}</h1>
+                </div>
+                <div className="content">
+                    <div className="centered">
+                        <label>
+                            Create New Survey:
+                            <Field
+                                name="surveyName"
+                                component="input"
+                                type="text"
+                                onKeyDown={this.handleKeyDown}
+                            />
+                        </label>
+                        <input type='button' value='Generate' onClick={this.startSurvey} />
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Survey</th>
+                                <th>Number of Responses</th>
+                                <th>Averages</th>
+                            </tr>
+                        </thead>
+                        <tbody className="centered">
+                            {
+                                this.props.surveys.map(survey => (
+                                    <tr key={survey.id}>
+                                        <td>
+                                            <Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${survey.id}`}>Results</Link>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }

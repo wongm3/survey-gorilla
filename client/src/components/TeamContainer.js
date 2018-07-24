@@ -20,7 +20,7 @@ const selector = formValueSelector('generateSurvey');
 const mapStateToProps = (state, ownProps) => ({
     id: ownProps.match.params.teamId,
     name: state.team.name,
-    surveys: state.surveys,
+    surveys: state.surveys.surveys,
     surveyName: selector(state, 'surveyName')
 });
 
