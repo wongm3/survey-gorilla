@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import Home from 'components/Home';
 import { updateTeam, registerTeam } from 'actions/teamActions';
+import { reduxForm, formValueSelector } from 'redux-form';
 
-const mapStateToProps = ({ team : { name }}) => ({
-    name
+const selector = formValueSelector('registerTeam');
+
+const mapStateToProps = (state) => ({
+    teamName: selector(state, 'teamName')
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -11,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
     updateTeam: team => dispatch(updateTeam(team))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'registerTeam' })(Home));

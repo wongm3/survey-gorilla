@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field } from 'redux-form';
 
 class Home extends React.Component {
 
@@ -7,7 +8,7 @@ class Home extends React.Component {
     }
 
     createTeam = () => {
-        this.props.registerTeam(this.props.name);
+        this.props.registerTeam(this.props.teamName);
     }
 
     render () {
@@ -19,7 +20,12 @@ class Home extends React.Component {
                 <div className="content centered">
                     <label>
                         Team Name: 
-                        <input type='text' onChange={this.handleNameChange} />
+                        <Field
+                            name="teamName"
+                            component="input"
+                            type="text"
+                            onChange={this.handleNameChange}
+                        />
                     </label>
                     <input type='button' value='Create' onClick={this.createTeam} />
                 </div>
@@ -27,5 +33,7 @@ class Home extends React.Component {
         )
     }
 }
+
+Home.prop
 
 export default Home;
