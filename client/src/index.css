@@ -67,9 +67,13 @@ p {
 }
 
 table {
-    width: 90%;
+    width: calc(100% + 80px);
     border-collapse: collapse;
-    margin: 25px 5%;
+    margin: 25px -40px;
+}
+
+table.full-height {
+    margin: -40px;
 }
 
 tbody tr:nth-child(odd) {
@@ -147,28 +151,27 @@ td, th {
 }
 
 .banner {
-    min-height: 150px;
-    padding: 20px;
-    background: var(--bay-of-many);
+    margin: 40px auto 20px;
     color: var(--ghost-white);
     display: flex;
     justify-content: space-between;
+    width: 90%;
 }
 
 .content {
-    max-width: 800px;
     margin: 0px auto;
     background: var(--ghost-white);
     padding: 40px;
     border-radius: 5px;
-    position: relative;
-    top: -50px;
-    width: 95%;
+    width: 90%;
 }
 
 .centered {
     text-align: center;
-    
+}
+
+.text-align-left {
+    text-align: left;
 }
 
 @media (max-width: 468px) {
@@ -176,3 +179,4 @@ td, th {
         display: none;
     }
 }
+

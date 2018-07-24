@@ -15,10 +15,10 @@ class Results extends React.Component {
                     <h1>Results</h1>
                 </div>
                 <div className="content">
-                    <table>
+                    <table className="full-height">
                         <thead>
                             <tr>
-                                <th>Question</th>
+                                <th className="text-align-left">Question</th>
                                 <th><span><span className="desktop">Average </span>Score</span></th>
                             </tr>
                         </thead>

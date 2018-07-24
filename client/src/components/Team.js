@@ -45,13 +45,15 @@ class Team extends React.Component {
                         </thead>
                         <tbody className="centered">
                             {
-                                this.props.surveys.map(survey => <tr key={survey.id}>
-                                    <td>
-                                        <Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${survey.id}`}>Results</Link>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>)
+                                this.props.surveys.map(survey => (
+                                    <tr key={survey.id}>
+                                        <td>
+                                            <Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${survey.id}`}>Results</Link>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                ))
                             }
                         </tbody>
                     </table>
