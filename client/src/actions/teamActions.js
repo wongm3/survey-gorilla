@@ -56,7 +56,6 @@ export const startSurvey = (teamId, name) => (
 
 export const getTeam = teamId => (
     async dispatch => {
-        console.log('test');
         const response = await fetch(`/api/team/${teamId}`, {
             method: 'GET',
             headers: {
