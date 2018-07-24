@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class Team extends React.Component {
 
@@ -31,7 +32,9 @@ class Team extends React.Component {
                 <div>View Previous Surveys:</div>
                     <ul>
                         {
-                            this.props.surveys.map(survey => <li key={survey.id}>{survey.name}</li>)
+                            this.props.surveys.map(survey => (
+                                <li key={survey.id}><Link to={`/survey/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${survey.id}`}>Results</Link></li>
+                            ))
                         }
                     </ul>
                 <div>Metrics</div>
