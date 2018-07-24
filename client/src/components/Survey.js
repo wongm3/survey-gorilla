@@ -24,7 +24,7 @@ class Survey extends React.Component {
                         <ol>
                             {
                                 this.questions.map((question, index) => (
-                                    <li>
+                                    <li key={index}>
                                         <Question text={question.question_text} id={question.question_id} />
                                     </li>
                                 ))

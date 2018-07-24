@@ -27,15 +27,66 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
+input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--chetwode-blue);
+    vertical-align: middle;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+input[type="button"] {
+    border: 0;
+    padding: 10px;
+    font-size: inherit;
+    font-family: inherit;
+    background: var(--chetwode-blue);
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+input[type="button"]:hover {
+    background: var(--bay-of-many);
+}
+
+.Question {
+    margin-bottom: 20px;
+}
+
+.Question p {
+    margin-bottom: 10px;
+}
+
+.Home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background-color: var(--bay-of-many);
+    padding-bottom: 300px;
+}
+
+.answer-list {
+    display: flex;
+    justify-content: stretch;
+}
+
 .answer {
     position: relative;
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .answer span{
-    width: 100px;
+    width: 100%;
     text-align:  center;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 10px;
     display: inline-block;
     border: 1px solid var(--bay-of-many);
 }
@@ -52,6 +103,20 @@ h1 {
 .answer input:checked + span {
     background: var(--bay-of-many);
     color: var(--ghost-white);
+}
+
+.answer:not(:last-child) span {
+    border-right: 0;
+}
+
+.answer:first-child span {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.answer:last-child span {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .banner {

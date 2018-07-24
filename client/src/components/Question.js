@@ -8,7 +8,7 @@ class Home extends React.Component {
                 <p>
                     {this.props.text}
                 </p>
-                <div>
+                <div className="answer-list">
                     {
                         [1, 2, 3, 4, 5].map((value, index) => {
                             return (

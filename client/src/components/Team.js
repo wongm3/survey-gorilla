@@ -17,30 +17,29 @@ class Team extends React.Component {
                         </label>
                         <input type='button' value='Generate' />
                     </div>
-                    <div>View Previous Surveys:</div>
                     <table style={{ width: "100%" }}>
                         <thead>
                             <tr>
                                 <th>Survey</th>
-                                <th>Averages</th>
                                 <th>Number of Responses</th>
+                                <th>Averages</th>
                             </tr>
                         </thead>
                         <tbody className="centered">
                             <tr>
                                 <td>Sprint 1</td>
-                                <td>3.4</td>
                                 <td>6</td>
+                                <td>3.4</td>
                             </tr>
                             <tr>
                                 <td>Sprint 2</td>
-                                <td>2.9</td>
                                 <td>5</td>
+                                <td>2.9</td>
                             </tr>
                             <tr>
                                 <td>Sprint 3</td>
-                                <td>3.9</td>
                                 <td>4</td>
+                                <td>3.9</td>
                             </tr>
                         </tbody>
                     </table>
