@@ -16,7 +16,7 @@ class Home extends React.Component {
                 <div className="banner">
                     <h1>Create Team</h1>
                 </div>
-                <div className="content">
+                <div className="content centered">
                     <label>
                         Team Name: 
                         <input type='text' onChange={this.handleNameChange} />

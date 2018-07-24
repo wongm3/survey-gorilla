@@ -26,7 +26,7 @@ class Results extends React.Component {
                             {
                                 this.questions.map((question, index) => (
                                     <tr>
-                                        <td><p>{question.question_text}</p></td>
+                                        <td>{question.question_text}</td>
                                         <td className="centered">{question.response_average % 5}</td>
                                     </tr>
                                 ))
