@@ -3,6 +3,13 @@ import { Field } from 'redux-form';
 
 class Team extends React.Component {
 
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter' && event.shiftKey === false) {
+            event.preventDefault();
+            this.startSurvey();
+        }
+    }
+
     startSurvey = () => {
         this.props.startSurvey(this.props.id, this.props.surveyName);
     }
@@ -17,6 +24,7 @@ class Team extends React.Component {
                         name="surveyName"
                         component="input"
                         type="text"
+                        onKeyDown={this.handleKeyDown}
                     />
                 </label>
                 <input type='button' value='Generate' onClick={this.startSurvey} />
