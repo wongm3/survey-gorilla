@@ -155,8 +155,6 @@ export const getSurveyAndQuestions = surveyId => (
 
 export const submitSurvey = (surveyId, answers, teamId) => (
     async dispatch => {
-        
-        console.log(surveyId, answers, teamId);
         const body = {
             answers
         };
