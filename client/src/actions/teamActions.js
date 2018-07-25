@@ -5,6 +5,7 @@ export const SET_CURRENT_SURVEY = 'SET_CURRENT_SURVEY';
 export const SET_QUESTIONS = 'SET_QUESTIONS';
 export const ANSWER_QUESTION = 'ANSWER_QUESTION';
 export const SET_RESULTS = 'SET_RESULTS';
+export const SET_TRENDS = 'SET_TRENDS';
 
 export const updateTeam = (team) => ({
     type: UPDATE_TEAM,
@@ -36,6 +37,11 @@ export const setResults = results => ({
     type: SET_RESULTS,
     results
 });
+
+export const setTrends = trends => ({
+    type: SET_TRENDS,
+    trends
+})
 
 export const registerTeam = (name) => (
     async dispatch => {
@@ -109,10 +115,26 @@ export const getTeamSurveys = teamId => (
     }
 );
 
-export const getTeamAndSurveys = teamId => (
+export const getTeamTrends = teamId => (
+    async dispatch => {
+        const response = await fetch(`/api/survey/${teamId}/result`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const content = await response.json();
+
+        dispatch(setTrends(content));
+    }
+);
+
+export const getTeamSurveysAndTrends = teamId => (
     async dispatch => {
         dispatch(getTeam(teamId));
         dispatch(getTeamSurveys(teamId));
+        dispatch(getTeamTrends(teamId));
     }
 );
 
