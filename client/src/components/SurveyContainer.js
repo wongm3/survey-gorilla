@@ -16,7 +16,7 @@ class SurveyContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    id: state.surveys.currentSurvey.id || ownProps.match.params.surveyId,
+    id: ownProps.match.params.surveyId,
     name: state.surveys.currentSurvey.name,
     questions: state.questions,
     teamId: ownProps.match.params.teamId
