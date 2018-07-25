@@ -40,8 +40,6 @@ class Team extends React.Component {
                         <thead>
                             <tr>
                                 <th>Survey</th>
-                                <th>Number of Responses</th>
-                                <th>Averages</th>
                             </tr>
                         </thead>
                         <tbody className="centered">
@@ -51,8 +49,6 @@ class Team extends React.Component {
                                         <td>
                                             <Link to={`/survey/${this.props.id}/${survey.id}`}>{survey.name}</Link> - <Link to={`/results/${this.props.id}/${survey.id}`}>Results</Link>
                                         </td>
-                                        <td></td>
-                                        <td></td>
                                     </tr>
                                 ))
                             }
