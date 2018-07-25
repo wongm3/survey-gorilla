@@ -4,7 +4,7 @@ import Clipboard from 'react-clipboard.js';
 
 class Survey extends React.Component {
     submitSurvey = () => {
-        this.props.submitSurvey(this.props.id, this.props.questions);
+        this.props.submitSurvey(this.props.id, this.props.questions, this.props.teamId);
     }
     render() {
         return (
@@ -12,7 +12,7 @@ class Survey extends React.Component {
                 <div className="banner">
                     <h1>{this.props.name} <span className="desktop">Survey</span></h1>
                     <label>
-                        <Clipboard data-clipboard-text={`${window.location.origin}/survey/${this.props.id}`}>
+                        <Clipboard data-clipboard-text={`${window.location.origin}/survey/${this.props.teamId}/${this.props.id}`}>
                             <React.Fragment>Copy <span className="desktop">Survey</span> Link</React.Fragment>
                         </Clipboard>
                     </label>

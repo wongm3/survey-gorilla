@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import { registerTeam } from '../actions/teamActions';
 
 class Home extends React.Component {
 
