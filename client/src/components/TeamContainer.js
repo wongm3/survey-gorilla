@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Team from 'components/Team';
-import { startSurvey, getTeamAndSurveys } from 'actions/teamActions';
+import { startSurvey, getTeamSurveysAndTrends } from 'actions/teamActions';
 import { reduxForm, formValueSelector } from 'redux-form';
 
 class TeamContainer extends React.Component {
     
     componentDidMount() {
-        this.props.getTeamAndSurveys(this.props.id);
+        this.props.getTeamSurveysAndTrends(this.props.id);
     }
 
     render() {
@@ -21,11 +21,12 @@ const mapStateToProps = (state, ownProps) => ({
     id: ownProps.match.params.teamId,
     name: state.team.name,
     surveys: state.surveys.surveys,
-    surveyName: selector(state, 'surveyName')
+    surveyName: selector(state, 'surveyName'),
+    trends: state.trends
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getTeamAndSurveys: (teamId) => dispatch(getTeamAndSurveys(teamId)),
+    getTeamSurveysAndTrends: (teamId) => dispatch(getTeamSurveysAndTrends(teamId)),
     startSurvey: (teamId, name) => dispatch(startSurvey(teamId, name))
 });
 

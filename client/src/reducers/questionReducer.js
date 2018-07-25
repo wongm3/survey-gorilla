@@ -25,7 +25,7 @@ const setResults = (state, results) => {
     return newState;
 }
 
-const surveyReducer = (state = [], action) => {
+const questionReducer = (state = [], action) => {
     switch (action.type) {
         case SET_QUESTIONS:
             return action.questions
@@ -38,4 +38,4 @@ const surveyReducer = (state = [], action) => {
     }
 }
 
-export default surveyReducer;
+export default questionReducer;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { LineChart } from 'react-chartkick';
 
 class Team extends React.Component {
 
@@ -57,6 +58,7 @@ class Team extends React.Component {
                             }
                         </tbody>
                     </table>
+                    <LineChart data={this.props.trends} height="750px" />
                 </div>
             </div>
         )
