@@ -153,8 +153,10 @@ export const getSurveyAndQuestions = surveyId => (
     }
 );
 
-export const submitSurvey = (surveyId, answers) => (
+export const submitSurvey = (surveyId, answers, teamId) => (
     async dispatch => {
+        
+        console.log(surveyId, answers, teamId);
         const body = {
             answers
         };
@@ -167,7 +169,7 @@ export const submitSurvey = (surveyId, answers) => (
             body: JSON.stringify(body)
         });
 
-        console.log('Survey Submitted');
+        dispatch(push(`/thanks/${teamId}/${surveyId}`));
     }
 );
 
