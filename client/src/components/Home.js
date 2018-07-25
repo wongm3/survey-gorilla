@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Field } from 'redux-form';
+import { registerTeam } from '../actions/teamActions';
 
 class Home extends React.Component {
 
@@ -7,7 +10,7 @@ class Home extends React.Component {
     }
 
     createTeam = () => {
-        this.props.registerTeam(this.props.name);
+        this.props.registerTeam(this.props.teamName);
     }
 
     render () {
@@ -19,13 +22,24 @@ class Home extends React.Component {
                 <div className="content centered">
                     <label>
                         Team Name: 
-                        <input type='text' onChange={this.handleNameChange} />
+                        <Field
+                            name="teamName"
+                            component="input"
+                            type="text"
+                            onChange={this.handleNameChange}
+                        />
                     </label>
                     <input type='button' value='Create' onClick={this.createTeam} />
                 </div>
             </div>
         )
     }
+}
+
+Home.propTypes = {
+    registerTeam: PropTypes.func.isRequired,
+    teamName: PropTypes.string,
+    updateTeam: PropTypes.func.isRequired
 }
 
 export default Home;

@@ -6,12 +6,11 @@ const setResults = (state, results) => {
     state.forEach(question => {
         results.some((result, index) => {
             let found = false;
-
-            if (question.questionId === result.question_uuid) {
+            if (question.questionId === result.questionId) {
                 newState.push({
                     ...question,
-                    average: result.avgScore,
-                    participation: result.countOfAnswers
+                    average: result.averageScore,
+                    participation: result.responseCount
                 });
 
                 results.splice(index, 1);

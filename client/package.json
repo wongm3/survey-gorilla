@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^4.3.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-chartkick": "^0.2.1",
     "react-clipboard.js": "^2.0.0",
